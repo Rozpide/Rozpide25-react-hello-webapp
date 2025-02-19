@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Private = () => {
-    const history = useHistory();
+    const history = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
         const token = sessionStorage.getItem('token');
         if (!token) {
-            history.push('/login');
+            navigate('/login');
         } else {
             setIsAuthenticated(true);
         }
-    }, [history]);
+    }, [navigate]);
 
     if (!isAuthenticated) {
         return <div>Loading...</div>;
