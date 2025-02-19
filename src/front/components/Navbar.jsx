@@ -1,6 +1,12 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+const logout = () => {
+    sessionStorage.removeItem('token');
+    window.location.href = '/login';
+};
+
+const Navbar = () => {
 
 	return (
 		<nav className="navbar navbar-light bg-light">
@@ -17,3 +23,5 @@ export const Navbar = () => {
 		</nav>
 	);
 };
+
+export default Navbar;
